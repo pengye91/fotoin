@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My First Application</string>
+    <string name="menu_add_item">Add</string>
+    <string name="menu_remove_item">Remove</string>
+    <string name="vice_activity_action">com.example.root.mainActivity.ACTION_START</string>
+</resources>
