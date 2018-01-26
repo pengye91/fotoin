@@ -6,27 +6,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViceActivity extends AppCompatActivity {
+public class ViceActivity extends BaseActivity {
     private static final String TAG = "ViceActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vice);
+        Log.d(TAG, this.toString());
+        Log.d(TAG, "task id is: " + getTaskId());
+    }
 
-        Button btn = findViewById(R.id.button2);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("extra_data", "this is a return extra data");
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
     }
 
     @Override

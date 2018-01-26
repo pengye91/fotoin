@@ -9,9 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
 
     @Override
@@ -19,17 +20,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d(TAG, this.toString());
+        Log.d(TAG, "task id is: " + getTaskId());
+
         Button btn = findViewById(R.id.button);
+        final EditText editText = (EditText) findViewById(R.id.edit_text);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "you click button", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ViceActivity.class);
-                startActivityForResult(intent, 1);
+                String editString = editText.getText().toString();
+                intent.putExtra("editText", editString);
+                startActivity(intent);
             }
         });
 
         Log.d(TAG, "onCreate: execute");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
     }
 
     @Override

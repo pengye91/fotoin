@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">LifeCycleApp</string>
     <string name="action_settings">Settings</string>
+    <string name="normal_activity_key">this is a normal activity</string>
+    <string name="dialog_activity_key">this is a dialog key</string>
+    <string name="normal_btn_text">Start NormalActivity</string>
+    <string name="dialog_btn_text">Start DialogActivity</string>
 </resources>
